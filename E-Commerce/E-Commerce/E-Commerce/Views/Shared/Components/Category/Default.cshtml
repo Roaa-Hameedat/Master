@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Category>
+
+@*<div class="container-fluid pt-5">
+    <div class="row px-xl-5 pb-3">
+        <div class="text-center mb-12">
+            <h2 class="section-title px-5"><span class="px-2">All Categories</span></h2>
+        </div>
+
+        @foreach (var i in Model)
+        {
+            <div class="col-lg-4 col-md-6 pb-1">
+                <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
+                    <a asp-action="PrductinCategory" asp-controller="Products" asp-route-id="@i.CategoryId" class="cat-img position-relative overflow-hidden mb-3">
+                        <img class="~/img-fluid" src="@Url.Content(i.Categoryimg)" alt="Image" height="14rem"   width: "13rem";>
+                    </a>
+                    <h5 class="font-weight-semi-bold m-0">@i.Categoryname</h5>
+                </div>
+            </div>
+        }
+        
+
+    </div>
+</div>*@
+
+
+
+<div class="text-center mb-12">
+    <h2 class="section-title px-5"><span class="px-2">All Categories</span></h2>
+</div>
+            <div class="container-fluid pt-5">
+        <div class="row px-xl-5 pb-3">
+            
+                  @foreach (var i in Model)
+        {
+            <div class="col-lg-4 col-md-6 pb-1">
+                <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
+                    <p class="text-right"></p>
+                     <a asp-action="PrductinCategory" asp-controller="Products" asp-route-id="@i.CategoryId" class="cat-img position-relative overflow-hidden mb-3">
+                    <img class="~/img-fluid" src="@Url.Content(i.Categoryimg)" alt="Image" style="height:21rem; width:15rem;"   >
+                </a>
+                    
+                    <h5 class="font-weight-semi-bold m-0">@i.Categoryname</h5>
+                </div>
+            </div>
+        }
+            </div>
+            </div>

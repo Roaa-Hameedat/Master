@@ -1,0 +1,22 @@
+﻿@model Cart
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "_layout4";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<h1>Are you sure to Delete this Product</h1>
+<form method="post" asp-action="Delete">
+    @Html.HiddenFor(x=>x.ProductId )
+    <input type="submit" value="sure Delete" class="btn btn-outline-danger" />
+    <a asp-action="Index" asp-controller="Home" class="btn btn-outline-success">Cancel</a>
+</form>
+

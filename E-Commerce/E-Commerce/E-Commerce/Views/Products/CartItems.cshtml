@@ -1,0 +1,101 @@
+﻿@model IEnumerable<E_Commerce.Models.Cart>
+
+@{
+    ViewData["Title"] = "CartItems";
+}
+
+<h1>CartItems</h1>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.product!.Productname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product!.Productprice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                    @Html.DisplayFor(modelItem => item.product!.Productname)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.product!.Productprice)
+            </td>
+            <td>
+               <a asp-action="Delete" asp-controller="Products" asp-route-id="@item.CartId" class="btn btn-danger">Delete Item</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Checkout" asp-controller="Products" class="btn btn-success">Checkout</a>
+    <a asp-action="Index" asp-controller="Home" class="btn btn-primary">Back to Shop</a>
+    <label>Total Amount: @ViewBag.tot</label>
+</div>
+*@
+
+
+                    <!-- Cart Start -->
+    <div class="container-fluid pt-5">
+        <div class="row px-xl-5">
+            <div class="col-lg-8 table-responsive mb-5">
+                <table class="table table-bordered text-center mb-0">
+                    <thead class="bg-secondary text-dark">
+                        <tr>
+                            <th>Products</th>
+                            <th>Price</th>                           
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model) {
+                    <tbody class="align-middle">
+                        <tr>
+                        <td class="align-middle"><img src="@Url.Content(item.product!.Productimg)" alt="" style="width: 50px;">@Html.DisplayFor(modelItem => item.product!.Productname)</td>
+                        <td class="align-middle">@Html.DisplayFor(modelItem => item.product!.Productprice) JD</td>
+
+
+                            <td class="align-middle"> <a asp-action="Delete" asp-controller="Products" asp-route-id="@item.CartId" class="btn btn-danger"><i class="fa fa-times"></i></a></td>
+                        </tr>
+                        
+                    </tbody>
+                    }
+                </table>
+            </div>
+            <div class="col-lg-4">
+                <div class="card border-secondary mb-5">
+                    <div class="card-header bg-secondary border-0">
+                        <h4 class="font-weight-semi-bold m-0">Cart Summary</h4>
+                    </div>
+                    <div class="card-body">
+                       
+                        
+                    </div>
+                    <div class="card-footer border-secondary bg-transparent">
+                        <div class="d-flex justify-content-between mt-2">
+                            <h5 class="font-weight-bold">Total</h5>
+                        <h5 class="font-weight-bold">@ViewBag.tot</h5>
+                        </div>
+                    <a asp-action="Checkout" asp-controller="Products" class="btn btn-success">Proceed To Checkout</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div style="text-align:center"><a asp-action="Checkout" asp-controller="Products" class="btn btn-success">Proceed To Checkout</a></div>
+<br />
+<br />
+
+<div style="text-align:center"><a asp-action="Index" asp-controller="Home" class="btn btn-primary">Back to Shop</a></div>
+    <!-- Cart End -->
